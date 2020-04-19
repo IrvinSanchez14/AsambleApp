@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {Radio} from 'native-base';
+import {View, Text, Platform} from 'react-native';
+import {Radio, CheckBox} from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {styleEncuesta} from '../../styles/EncuestaComponent';
@@ -18,7 +18,11 @@ function Encuesta(Props) {
       <View style={styleEncuesta.containerRadio}>
         <View style={styleEncuesta.boxElemnts}>
           <View style={{marginLeft: -10}}>
-            <Radio selected={false} />
+            {Platform.OS === 'android' ? (
+              <Radio selected={false} />
+            ) : (
+              <CheckBox checked={true} />
+            )}
           </View>
           <View style={{marginLeft: 10}}>
             <Text>SI</Text>
@@ -26,7 +30,11 @@ function Encuesta(Props) {
         </View>
         <View style={styleEncuesta.boxElemnts}>
           <View style={{marginLeft: -3}}>
-            <Radio selected={false} />
+            {Platform.OS === 'android' ? (
+              <Radio selected={false} />
+            ) : (
+              <CheckBox checked={true} />
+            )}
           </View>
           <View style={{marginLeft: 10}}>
             <Text>NO</Text>

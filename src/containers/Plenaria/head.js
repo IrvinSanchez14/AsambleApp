@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import * as Progress from 'react-native-progress';
 
 import {PLENARIA} from '../../helper/textos';
@@ -32,7 +32,7 @@ function HeadPlenaria(Props) {
 
   return (
     <View>
-      <View style={stylePlenaria.headBase}>
+      <SafeAreaView style={stylePlenaria.headBase}>
         <View>
           <Text>{PLENARIA.HEAD_PLENARIA_TIMER}</Text>
         </View>
@@ -49,7 +49,7 @@ function HeadPlenaria(Props) {
             Math.floor(timeLeft / 60) < 10 ? `0${timeLeft % 60}` : timeLeft % 60
           }`}</Text>
         </View>
-      </View>
+      </SafeAreaView>
       <View style={stylePlenaria.headTitle}>
         <Text style={stylePlenaria.titleHead}>ASAMBLEA #47</Text>
       </View>
