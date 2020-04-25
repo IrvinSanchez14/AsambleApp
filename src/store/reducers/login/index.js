@@ -30,6 +30,18 @@ export default (state = initialState, action) => {
         dui: action.response.data.dui,
       };
     }
+    case CONSTANTS.LOGIN.LOGIN_ACCESS_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        login: false,
+        token: null,
+        username: null,
+        id: null,
+        nombre: null,
+        dui: null,
+      };
+    }
     default: {
       return state;
     }
