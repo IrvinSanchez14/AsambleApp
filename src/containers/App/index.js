@@ -13,6 +13,7 @@ import HomeScreen from '../Home';
 import PlenariaContainer from '../Plenaria';
 import PlenariaPasadaContainer from '../PlenariasPasadas';
 import DetalleAsambleaContainer from '../DetalleAsamblea';
+import Login from '../Login';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,9 +26,9 @@ const RootComponent = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Root">
+          <Stack.Navigator initialRouteName="Home">
             <Stack.Screen
-              name="Root"
+              name="Home"
               component={HomeScreen}
               options={{headerShown: false}}
             />
@@ -56,6 +57,11 @@ const RootComponent = () => {
             <Stack.Screen
               name="detalle_asamblea"
               component={DetalleAsambleaContainer}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Login"
+              component={Login}
               options={{headerShown: false}}
             />
           </Stack.Navigator>

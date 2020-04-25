@@ -75,7 +75,7 @@ function HomeScreen(Props) {
 
       <Footer style={{backgroundColor: '#ffffff'}}>
         <FooterTab style={{backgroundColor: '#ffffff'}}>
-          <Button vertical onPress={() => sendPush()}>
+          <Button vertical onPress={() => Props.navigation.navigate('Login')}>
             <FontAwesome
               style={{fontSize: 24, color: '#fbe000'}}
               name="history"
