@@ -9,6 +9,9 @@ import {
   Button,
   StyleSheet,
 } from 'react-native';
+import {connect} from 'react-redux';
+
+import {loginAccess} from '../../store/actions/login';
 
 const styles = StyleSheet.create({
   containerView: {
@@ -48,7 +51,17 @@ const styles = StyleSheet.create({
   },
 });
 
-function Login() {
+function Login(Props) {
+  const {loginAccess} = Props;
+
+  const loginApp = () => {
+    const objectForm = {
+      usuario: '145696',
+      password: '20070008',
+    };
+    loginAccess(objectForm);
+  };
+
   return (
     <KeyboardAvoidingView style={styles.containerView} behavior="padding">
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -66,7 +79,11 @@ function Login() {
               style={styles.loginFormTextInput}
               secureTextEntry={true}
             />
-            <Button buttonStyle={styles.loginButton} title="Login" />
+            <Button
+              buttonStyle={styles.loginButton}
+              onPress={() => loginApp()}
+              title="Login"
+            />
           </View>
         </View>
       </TouchableWithoutFeedback>
@@ -74,4 +91,8 @@ function Login() {
   );
 }
 
-export default Login;
+const actions = {
+  loginAccess,
+};
+
+export default connect(null, actions)(Login);
